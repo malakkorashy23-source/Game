@@ -1,0 +1,102 @@
+@use "./../abstract/mixin" as * ;
+
+#Game{
+    background-image: linear-gradient(to bottom, #1e528e 0%, #728a7c 50%, #e9ce5d 100%);
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    nav{
+        background-color: #4b0082;
+        h5{
+            @include responsive(350){
+                font-size: 14px;
+            }
+            @include responsive(650){
+                font-size: 18px;
+            }
+        }
+    }
+
+    .chickenContainer{
+        position: relative;
+        .item{
+            position: relative;
+            z-index: 2;
+            i{
+                font-size: 25px;
+                @include position($b:0,$l:50%);
+                transform: translate(-50%,-50%);
+                z-index: 2;
+            }
+            img{
+                @include eleDimensions(120px,120px);
+                @include responsive(350){
+                    @include eleDimensions(80px,80px);
+                };
+                position: relative;
+                z-index: 4;
+            }
+        }
+        .line{
+            @include eleDimensions(100%,20px);
+            @include position($b:0,$l:0);
+            background-color: #333;
+        }
+    }
+
+    .basket{
+        width: 200px;
+        @include position($b:20%,$l:0%);
+        z-index: 5;
+        @include responsive(350){
+            width: 150px;
+            @include position($b:10%,$l:0%);
+        }
+        @include responsive(650){
+            @include position($b:15%,$l:0%);
+        }
+        @include responsive(1050){
+            @include position($b:20%,$l:0%);
+        }
+       
+        span{
+            @include position($b:0%,$l:50%);
+            transform: translateX(-50%);
+            z-index: 3;
+            @include font(20px,700)
+        }
+    }
+
+    .brokenEggs{
+        @include position($b:10%,$l:0);
+        width: 100%;
+        z-index: 4;
+        .row{
+            img{
+                display: none;
+                @include eleDimensions(50px,50px);
+            }
+        }
+    }
+
+    .start{
+        padding-block: 15px;
+        text-align: center;
+        color: #fff;
+        @include position($t:50%,$l:0%);
+        transform: translateY(-50%);
+        z-index: 5;
+        width: 100%;
+        h3{
+            cursor: pointer;
+        }
+    }
+
+    .bg-bottom{
+        height: 20%;
+        @include position($b:0,$l:0);
+        @include responsive(350){
+            height: auto;
+        }
+    }
+}
